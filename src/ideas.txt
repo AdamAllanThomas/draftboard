@@ -1,0 +1,5 @@
+Create a nice ui draft board for 2 people
+Create a win loss counter, and have a decide winner button
+randomly generate a topic (Datamuse?)
+allow more players
+Allow more than one person to vote, allow each person to input their board, and vote on the winner individually.

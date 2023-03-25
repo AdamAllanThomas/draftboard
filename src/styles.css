@@ -1,0 +1,227 @@
+body {
+  background-color: #f5f5f5;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background: linear-gradient(to right, #f44336, #e91e63);
+  color: #ffffff;
+  font-size: 24px;
+  padding: 24px;
+  text-align: center;
+  letter-spacing: -0.05em;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+.playersrow {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin: 0 10%;
+  padding: 10px 0;
+  gap: 10%;
+}
+.player-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.editableplayername span:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.editableplayername {
+  font-size: 25px;
+  font-weight: bold;
+  color: #f44336;
+  cursor: pointer;
+  display: block;
+  width: 50%;
+  text-align: center;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.player-stats {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  gap: 10px;
+}
+
+.player-stats .wins,
+.player-stats .losses {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+.player-stats .wins {
+  background-color: #03a9f4;
+  color: #ffffff;
+}
+.player-stats .losses {
+  background-color: #e91e63;
+  color: #ffffff;
+}
+
+.playername {
+  font-size: 25px;
+  font-weight: bold;
+  color: #f44336;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+.playername:hover {
+  background-color: #e0e0e0;
+}
+
+.topic-generator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 5%;
+  border-radius: 4px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.topic {
+  font-size: 36px;
+  font-weight: bold;
+  color: #f44336;
+  margin-bottom: 20px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.generate-topic-button {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #f44336;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.generate-topic-button:hover {
+  background-color: #039be5;
+  transform: translateY(-2px);
+}
+
+.draft-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2% 10%;
+}
+
+.draft-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.player1-pick,
+.player2-pick {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.player1-pick input,
+.player2-pick input {
+  border: none;
+  border-bottom: 2px solid #f44336;
+  outline: none;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 10px;
+  padding: 5px;
+  width: 100%;
+  background: transparent;
+  transition: border-color 0.3s ease;
+  color: #f44336;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.player1-pick input:focus,
+.player2-pick input:focus {
+  border-color: #03a9f4;
+  color: #03a9f4;
+}
+
+.player1-pick input:hover,
+.player2-pick input:hover {
+  border-color: #03a9f4;
+  color: #03a9f4;
+}
+
+.draft-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10%;
+}
+
+.draft-footer button {
+  background-color: #f44336;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.draft-footer button:hover {
+  background-color: #039be5;
+  transform: translateY(-2px);
+}
+
+.draft-footer button:active {
+  transform: translateY(0);
+}
