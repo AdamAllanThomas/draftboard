@@ -8,4 +8,8 @@ Generally, we would just play without any way to keep track of our picks, so I t
 
 ## Why?
 
-Cause I want to learn how to do stuff.
+Cause I want to learn how to do stuff, and this is stuff.
+
+## How does it work?
+
+Well.
