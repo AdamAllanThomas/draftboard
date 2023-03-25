@@ -225,3 +225,10 @@ body {
 .draft-footer button:active {
   transform: translateY(0);
 }
+
+@media (max-width: 600px) {
+  .draft-footer {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+}
