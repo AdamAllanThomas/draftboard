@@ -105,11 +105,8 @@ const DraftBoard: React.FC = () => {
     <div className="draft-board">
       <div className="draft-body">{renderPicks()}</div>
       <div className="draft-footer">
-        {/* <button onClick={handleNextRound}>Next round</button> */}
-        <div className="draft-winners">
-          <button onClick={() => handleGameOver(1)}>{player1Name} wins!</button>
-          <button onClick={() => handleGameOver(2)}>{player2Name} wins!</button>
-        </div>
+        <button onClick={() => handleGameOver(1)}>{player1Name} wins!</button>
+        <button onClick={() => handleGameOver(2)}>{player2Name} wins!</button>
       </div>
     </div>
   );
