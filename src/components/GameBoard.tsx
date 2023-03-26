@@ -1,7 +1,11 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { usePlayerContext } from "../PlayerContext";
 
-const DraftBoard: React.FC = () => {
+interface DraftBoardProps {
+  generateRandomTopic: () => void;
+}
+
+const DraftBoard: React.FC<DraftBoardProps> = ({ generateRandomTopic }) => {
   const [player1Picks, setPlayer1Picks] = useState<string[]>([""]);
   const [player2Picks, setPlayer2Picks] = useState<string[]>([""]);
   const [currentRound, setCurrentRound] = useState(0);
@@ -93,6 +97,7 @@ const DraftBoard: React.FC = () => {
       });
     }
     resetBoard();
+    generateRandomTopic();
   };
 
   const resetBoard = () => {

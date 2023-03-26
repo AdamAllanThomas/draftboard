@@ -1,22 +1,16 @@
-import React, { useState, MouseEvent, FocusEvent, KeyboardEvent } from "react";
-import draftTopics from "../data/moretopics.js";
+import React, { MouseEvent, FocusEvent, KeyboardEvent } from "react";
 
-interface TopicGeneratorProps {}
+interface TopicGeneratorProps {
+  topic: string;
+  generateRandomTopic: () => void;
+}
 
-const TopicGenerator: React.FC<TopicGeneratorProps> = () => {
-  const topics = draftTopics;
-  const [topic, setTopic] = useState(
-    topics[Math.floor(Math.random() * topics.length)]
-  );
-
-  const generateRandomTopic = () => {
-    const randomIndex = Math.floor(Math.random() * topics.length);
-    const randomTopic = topics[randomIndex];
-    setTopic(randomTopic);
-  };
-
+const TopicGenerator: React.FC<TopicGeneratorProps> = ({
+  topic,
+  generateRandomTopic,
+}) => {
   const handleTopicChange = (event: FocusEvent<HTMLDivElement>) => {
-    setTopic(event.currentTarget.innerText);
+    // You may want to handle changes in the parent component if needed
   };
 
   const handleTopicClick = (event: MouseEvent<HTMLDivElement>) => {
