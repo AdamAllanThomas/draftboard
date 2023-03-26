@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import draftTopics from "../data/topics.js";
+import draftTopics from "../data/moretopics.js";
 
 const TopicGenerator = () => {
   const topics = draftTopics;
