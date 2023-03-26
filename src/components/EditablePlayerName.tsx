@@ -1,57 +1,53 @@
-import React, { useState, ChangeEvent, KeyboardEvent } from "react";
+import React, { MouseEvent, FocusEvent, KeyboardEvent } from "react";
+import { usePlayerContext } from "../PlayerContext";
 
 interface EditablePlayerNameProps {
-  defaultName: string;
-  onSave: (name: string) => void;
+  playerNumber: 1 | 2;
 }
 
 const EditablePlayerName: React.FC<EditablePlayerNameProps> = ({
-  defaultName,
-  onSave,
+  playerNumber,
 }) => {
-  const [isEditing, setIsEditing] = useState<boolean>(false);
-  const [name, setName] = useState<string>(defaultName);
+  const { player1Name, setPlayer1Name, player2Name, setPlayer2Name } =
+    usePlayerContext();
 
-  const handleSave = () => {
-    setIsEditing(false);
-    onSave(name);
+  // Establish the name and setName variables based on the playerNumber prop
+  const name = playerNumber === 1 ? player1Name : player2Name;
+  const setName = playerNumber === 1 ? setPlayer1Name : setPlayer2Name;
+
+  const handleSave = (event: FocusEvent<HTMLDivElement>) => {
+    setName(event.currentTarget.innerText);
   };
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value);
-  };
-
-  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      handleSave();
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      event.currentTarget.blur();
     }
   };
 
-  if (isEditing) {
-    return (
-      <input
-        type="text"
-        value={name}
-        className="editableplayername"
-        onChange={handleChange}
-        onBlur={handleSave}
-        onKeyDown={handleKeyDown}
-        autoFocus
-        style={{
-          width: "100%",
-          height: "40px",
-          boxSizing: "border-box",
-          padding: "4px",
-        }}
-      />
-    );
-  } else {
-    return (
-      <span className="playername" onClick={() => setIsEditing(true)}>
-        {name}
-      </span>
-    );
-  }
+  const handleNameClick = (event: MouseEvent<HTMLDivElement>) => {
+    const range = document.createRange();
+    range.selectNodeContents(event.currentTarget);
+    const sel = window.getSelection();
+    if (sel) {
+      sel.removeAllRanges();
+      sel.addRange(range);
+    }
+  };
+
+  return (
+    <div
+      className="playername"
+      contentEditable
+      onBlur={handleSave}
+      onKeyDown={handleKeyDown}
+      onClick={handleNameClick}
+      suppressContentEditableWarning={true}
+    >
+      {name}
+    </div>
+  );
 };
 
 export default EditablePlayerName;
